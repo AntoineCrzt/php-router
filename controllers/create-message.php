@@ -18,4 +18,4 @@ if (empty($_POST['message'])) {
 
 addNewMessage($_POST['topic_id'], $_POST['message']);
 
-return header('location: topic.php?id=' . $_POST['topic_id']);
+return header('location: ?action=topic&id=' . $_POST['topic_id']);

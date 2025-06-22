@@ -103,8 +103,8 @@
             </div>
         <?php else : ?>
             <div>
-                <a href="login.php">Se Connecter</a>
-                <a href="login.php">S'inscrire</a>
+                <a href="?action=login">Se Connecter</a>
+                <a href="?action=login">S'inscrire</a>
             </div>
         <?php endif; ?>
     </nav>
@@ -113,7 +113,7 @@
         <h2>Catégories</h2>
         <div class="categories">
             <?php foreach ($categories as $category) : ?>
-                <a href="category.php?name=<?= urlencode($category['name'])  ?>" class="category">
+                <a href="?action=category&name=<?= urlencode($category['name'])  ?>" class="category">
                     <h3><?= $category['name']  ?></h3>
                     <p><?= $category['description'] ?></p>
                 </a>

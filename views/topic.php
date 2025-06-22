@@ -129,8 +129,8 @@
             </div>
         <?php else : ?>
             <div>
-                <a href="login.php">Se Connecter</a>
-                <a href="login.php">S'inscrire</a>
+                <a href="?action=login">Se Connecter</a>
+                <a href="?action=login">S'inscrire</a>
             </div>
         <?php endif; ?>
     </nav>
@@ -153,7 +153,7 @@
         <?php if ($logged_in) : ?>
             <div class="reply-form">
                 <h3>Répondre au sujet</h3>
-                <form action="create-message.php" method="post">
+                <form action="?action=create-message" method="post">
                     <input type="hidden" name="topic_id" value="<?= $topic['id'] ?>" />
                     <textarea name="message" rows="5" placeholder="Votre message"></textarea>
                     <button type="submit">Envoyer</button>

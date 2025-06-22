@@ -100,8 +100,8 @@
             </div>
         <?php else : ?>
             <div>
-                <a href="login.php">Se Connecter</a>
-                <a href="login.php">S'inscrire</a>
+                <a href="?action=login">Se Connecter</a>
+                <a href="?action=login">S'inscrire</a>
             </div>
         <?php endif; ?>
     </nav>
@@ -121,7 +121,7 @@
             <tbody>
                 <?php foreach ($topics as $topic) : ?>
                     <tr>
-                        <td><a href="topic.php?id=<?= $topic['id'] ?>"><?= $topic['name'] ?></a></td>
+                        <td><a href="?action=topic&id=<?= $topic['id'] ?>"><?= $topic['name'] ?></a></td>
                         <td><?= $topic['last_post_content'] ?></td>
                         <td><?= $topic['last_update'] ?></td>
                     </tr>
