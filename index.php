@@ -1,3 +1,3 @@
 <?php
 
-return header('location: controllers/index.php');
+return header('location: public/index.php');
