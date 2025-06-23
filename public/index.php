@@ -1,20 +1,22 @@
 <?php
-
 $action = $_GET['action'] ?? '';
+require '../controllers/index.php';
+require '../controllers/login.php';
+require '../controllers/categoryAndTopics.php';
 switch ($action) {
-    case '': // C'est l'accueil
-        require '../controllers/index.php';
+    case '':
+        index();
         break;
     case 'login':
-        require '../controllers/login.php';
+        login();
         break;
     case 'topic':
-        require '../controllers/topic.php';
+        showTopic();
         break;
     case 'category':
-        require '../controllers/category.php';
+        showCategory();
         break;
     case 'create-message':
-        require '../controllers/create-message.php';
+        createMessage();
         break;
 }
