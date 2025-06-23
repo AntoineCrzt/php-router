@@ -1,4 +1,5 @@
 <?php
+session_start();
 $action = $_GET['action'] ?? '';
 require '../controllers/index.php';
 require '../controllers/login.php';
