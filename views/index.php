@@ -122,7 +122,7 @@
     </div>
 
     <footer>
-        <p>Nombre de membres : <?= $nb_users ?> | Nombre de sujets : <?= $nb_topics ?> | Nombre de messages : <?= $nb_messages ?></p>
+        <p>Nombre de membres : <?= $GLOBALS['nb_users'] ?> | Nombre de sujets : <?= $GLOBALS['nb_topics'] ?> | Nombre de messages : <?= $GLOBALS['nb_messages'] ?>
     </footer>
 
 </body>

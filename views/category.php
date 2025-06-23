@@ -132,7 +132,7 @@
     </div>
 
     <footer>
-        <p>Nombre de membres : 1234 | Nombre de sujets : 5678 | Nombre de messages : 91011</p>
+        <p>Nombre de membres : <?= $GLOBALS['nb_users'] ?> | Nombre de sujets : <?= $GLOBALS['nb_topics'] ?> | Nombre de messages : <?= $GLOBALS['nb_messages'] ?>
     </footer>
 
 </body>
