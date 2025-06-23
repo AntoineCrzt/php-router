@@ -16,6 +16,9 @@ switch ($action) {
         login();
         break;
     case 'topic':
+        if (empty($_GET['id']) or !is_numeric($_GET['id'])) {
+            return header('location:index.php');
+        }
         getStats();
         showTopic();
         break;
