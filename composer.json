@@ -4,7 +4,8 @@
         "psr-4": {
             "Controllers\\": "controllers/",
             "Models\\": "models/",
-            "Middlewares\\": "middlewares/"
+            "Middlewares\\": "middlewares/",
+            "App\\": "app/"
         }
     },
     "authors": [
