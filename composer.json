@@ -1,0 +1,16 @@
+{
+    "name": "antoinecreuzet/php-router",
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "controllers/",
+            "Models\\": "models/",
+            "Middlewares\\": "middlewares/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Antoine Creuzet"
+        }
+    ],
+    "require": {}
+}

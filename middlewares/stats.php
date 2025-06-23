@@ -1,8 +1,13 @@
 <?php
 
-function getStats()
+namespace Middlewares;
+
+class Stats
 {
-    $GLOBALS['nb_users'] = 1000;
-    $GLOBALS['nb_topics'] = 500;
-    $GLOBALS['nb_messages'] = 4242;
+    public function getStats()
+    {
+        $GLOBALS['nb_users'] = 1000;
+        $GLOBALS['nb_topics'] = 500;
+        $GLOBALS['nb_messages'] = 4242;
+    }
 }
