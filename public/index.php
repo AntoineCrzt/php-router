@@ -20,6 +20,9 @@ switch ($action) {
         showTopic();
         break;
     case 'category':
+        if (empty($_GET['name'])) {
+            return header('location: index.php?action=404');
+        }
         getStats();
         showCategory();
         break;
@@ -29,5 +32,8 @@ switch ($action) {
         break;
     case '403':
         echo "Erreur : vous devez être authentifié";
+        break;
+    case '404':
+        echo "Erreur : cette page n'existe pas";
         break;
 }
