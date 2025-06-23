@@ -2,18 +2,20 @@
 
 namespace Controllers;
 
-use Models\Category;
+use Models\Categorie;
+use Models\Managers\CategoriesManager;
+use Models\Managers\TopicsManager;
 use Models\Topic;
 
 class CategoryAndTopicsController
 {
-    private Category $categoriesModel;
-    private Topic $topicsModel;
+    private CategoriesManager $categoriesModel;
+    private TopicsManager $topicsModel;
 
     public function __construct()
     {
-        $this->categoriesModel = new Category();
-        $this->topicsModel = new Topic();
+        $this->categoriesModel = new CategoriesManager();
+        $this->topicsModel = new TopicsManager();
     }
 
     public function showCategory()
@@ -31,6 +33,7 @@ class CategoryAndTopicsController
         require '../views/topic.php';
     }
 
+
     public function createMessage()
     {
         if (empty($_POST['message'])) {
@@ -40,6 +43,7 @@ class CategoryAndTopicsController
         if (empty($_POST['topic_id']) or !is_numeric($_POST['topic_id'])) {
             // Erreur
         }
+
 
         $this->topicsModel->addNewMessage($_POST['topic_id'], $_POST['message']);
 

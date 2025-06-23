@@ -113,16 +113,16 @@
         <h2>Catégories</h2>
         <div class="categories">
             <?php foreach ($categories as $category) : ?>
-                <a href="?action=category&name=<?= urlencode($category['name'])  ?>" class="category">
-                    <h3><?= $category['name']  ?></h3>
-                    <p><?= $category['description'] ?></p>
+                <a href="?action=category&name=<?= urlencode($category->name())  ?>" class="category">
+                    <h3><?= $category->name()  ?></h3>
+                    <p><?= $category->description() ?></p>
                 </a>
             <?php endforeach; ?>
         </div>
     </div>
 
     <footer>
-        <p>Nombre de membres : <?= $GLOBALS['nb_users'] ?> | Nombre de sujets : <?= $GLOBALS['nb_topics'] ?> | Nombre de messages : <?= $GLOBALS['nb_messages'] ?>
+        <p>Nombre de membres : <?= $GLOBALS['nb_users'] ?> | Nombre de sujets : <?= $GLOBALS['nb_topics'] ?> | Nombre de messages : <?= $GLOBALS['nb_messages'] ?></p>
     </footer>
 
 </body>

@@ -2,20 +2,21 @@
 
 namespace Controllers;
 
-use Models\Category;
+use Models\Categorie;
+use Models\Managers\CategoriesManager;
 
 class HomeController
 {
-    private Category $categoryModel;
+    private CategoriesManager $categoryModel;
 
     public function __construct()
     {
-        $this->categoryModel = new Category();
+        $this->categoryModel = new CategoriesManager();
     }
     public function index()
     {
-        $categories = $this->categoryModel->getCategories();
         $logged_in = $_SESSION['auth'] ?? false;
+        $categories = $this->categoryModel->getCategories();
         require '../views/index.php';
     }
 }

@@ -121,9 +121,9 @@
             <tbody>
                 <?php foreach ($topics as $topic) : ?>
                     <tr>
-                        <td><a href="?action=topic&id=<?= $topic['id'] ?>"><?= $topic['name'] ?></a></td>
-                        <td><?= $topic['last_post_content'] ?></td>
-                        <td><?= $topic['last_update'] ?></td>
+                        <td><a href="?action=topic&id=<?= $topic->id() ?>"><?= $topic->name() ?></a></td>
+                        <td><?= $topic->last_post()->content() ?></td>
+                        <td><?= $topic->last_update() ?></td>
                     </tr>
                 <?php endforeach; ?>
                 <!-- Ajoutez d'autres sujets ici -->
@@ -132,7 +132,7 @@
     </div>
 
     <footer>
-        <p>Nombre de membres : <?= $GLOBALS['nb_users'] ?> | Nombre de sujets : <?= $GLOBALS['nb_topics'] ?> | Nombre de messages : <?= $GLOBALS['nb_messages'] ?>
+        <p>Nombre de membres : <?= $GLOBALS['nb_users'] ?> | Nombre de sujets : <?= $GLOBALS['nb_topics'] ?> | Nombre de messages : <?= $GLOBALS['nb_messages'] ?></p>
     </footer>
 
 </body>
