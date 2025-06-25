@@ -48,6 +48,15 @@ class Route
         $this->middlewares = $middlewares;
     }
 
+    public function setVerb(string $verb)
+    {
+        $verb = strtoupper($verb);
+        if (!in_array($verb, ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])) {
+            throw new InvalidArgumentException('Le verbe HTTP est incorrect : ' . $verb);
+        }
+        $this->verb = $verb;
+    }
+
     public function action(): string
     {
         return $this->action;
@@ -67,9 +76,14 @@ class Route
     {
         return $this->controller;
     }
-    
+
     public function method(): string
     {
         return $this->method;
+    }
+
+    public function verb(): string
+    {
+        return $this->verb;
     }
 }

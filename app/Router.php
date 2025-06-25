@@ -18,13 +18,18 @@ class Router
     public function route()
     {
         foreach ($this->routes as $route) {
-            if ($this->action == $route->action()) {
+            if ($this->action == $route->action() and $this->requestIs($route->verb())) {
                 if ($route->hasMiddlewares()) {
                     $this->callMiddlewares($route->middlewares());
                 }
                 $this->callController($route->controller(), $route->method());
             }
         }
+    }
+
+    private function requestIs(string $verb): bool
+    {
+        return $_SERVER['REQUEST_METHOD'] === $verb;
     }
     
     private function callMiddlewares(array $middlewares)
