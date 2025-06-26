@@ -7,6 +7,7 @@ use App\Route;
 use App\Router;
 use Controllers\AuthController;
 use Controllers\CategoryAndTopicsController;
+use Controllers\ErrorsController;
 use Controllers\HomeController;
 use Middlewares\Authentication;
 use Middlewares\Stats;
@@ -22,6 +23,11 @@ try {
         new Route(['action' => 'topic', 'controller' => CategoryAndTopicsController::class, 'method' => 'showTopic', 'middlewares' => [Stats::class => 'getStats'], 'parameters' => ['id' => ['format' => '[0-9]+']]]),
         new Route(['action' => 'category', 'controller' => CategoryAndTopicsController::class, 'method' => 'showCategory', 'middlewares' => [Stats::class => 'getStats'], 'parameters' => ['name']]),
         new Route(['action' => 'create-message', 'verb' => 'POST', 'controller' => CategoryAndTopicsController::class, 'method' => 'createMessage', 'middlewares' => [Authentication::class => 'checkAuth']])
+    ]);
+    $router->errorRoutes([
+        new Route(['action' => '403', 'controller' => ErrorsController::class, 'method' => 'error403']),
+        new Route(['action' => '404', 'controller' => ErrorsController::class, 'method' => 'error404']),
+        new Route(['action' => '400', 'controller' => ErrorsController::class, 'method' => 'error400']),
     ]);
     $router->route();
 } catch (InvalidArgumentException $e) {

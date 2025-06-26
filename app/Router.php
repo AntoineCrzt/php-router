@@ -8,11 +8,17 @@ class Router
 {
     private array $routes = [];
     private string $action = '';
+    private array $errorRoutes = [];
 
     public function __construct(string $action, array $routes)
     {
         $this->action = $action;
         $this->routes = $routes;
+    }
+
+    public function errorRoutes(array $errorRoutes)
+    {
+        $this->errorRoutes = $errorRoutes;
     }
 
     public function route()
@@ -26,8 +32,17 @@ class Router
                     $this->callMiddlewares($route->middlewares());
                 }
                 $this->callController($route->controller(), $route->method());
+                return;
             }
         }
+
+        foreach ($this->errorRoutes as $route) {
+            if ($this->action === $route->action() and $this->requestIs('GET')) {
+                http_response_code($this->action);
+                return $this->callController($route->controller(), $route->method());
+            }
+        }
+        return header('location: index.php?action=404');
     }
 
     private function parametersMatch(array $parameters)
