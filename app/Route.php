@@ -62,6 +62,16 @@ class Route
         return $this->action;
     }
 
+    public function hasParameters(): bool
+    {
+        return count($this->parameters) > 0;
+    }
+
+    public function parameters(): array
+    {
+        return $this->parameters;
+    }
+
     public function hasMiddlewares(): bool
     {
         return count($this->middlewares) > 0;
